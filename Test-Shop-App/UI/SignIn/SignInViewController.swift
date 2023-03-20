@@ -136,6 +136,13 @@ class SignInViewController: UIViewController {
         setupView()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        firstNameTextField.text = ""
+        emailTextField.text = ""
+        passwordTextField.text = ""
+    }
+    
     private func setupView() {
         view.addSubview(signInLabel)
         signInLabel.snp.makeConstraints { make in
@@ -213,8 +220,6 @@ class SignInViewController: UIViewController {
         newUser.image = nil
         
         viewModel?.registerNewUser(newUser)
-//        let tabBar = TabBarController()
-//        navigationController?.pushViewController(tabBar, animated: true)
     }
     
     func success() {
