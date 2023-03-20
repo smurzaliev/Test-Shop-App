@@ -18,11 +18,11 @@ class DataManager {
             let db = try Realm()
             return db
 
-        }
-        catch let err {
+        } catch let err {
             print("Error writing into database \(err.localizedDescription)")
             return nil
         }
+        
     }()
     
     static let shared = DataManager()

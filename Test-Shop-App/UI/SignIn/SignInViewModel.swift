@@ -10,6 +10,7 @@ import Realm
 
 class SignInViewModel {
     var view: SignInViewController!
+    private let dataBase = DataManager.shared
         
     init(view: SignInViewController!) {
         self.view = view
@@ -27,10 +28,10 @@ class SignInViewModel {
         if !user.name.isEmpty {
             if isValidEmail(user.email) {
                 if user.password.count >= 6 {
-                    if DataManager.shared.checkUser(user: user) {
+                    if dataBase.checkUser(user: user) {
                         view.presentAlert(title: "Error", message: "This user already exists")
                     } else {
-                        DataManager.shared.registerUser(user: user)
+                        dataBase.registerUser(user: user)
                         view.success()
                     }
                 } else {

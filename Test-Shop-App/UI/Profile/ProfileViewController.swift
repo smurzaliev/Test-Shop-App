@@ -12,6 +12,20 @@ class ProfileViewController: UIViewController {
     
     private var viewModel: ProfileViewModel? = nil
     
+    //MARK: - Main ScrollView
+    
+    private lazy var mainScrollView: UIScrollView = {
+        let view = UIScrollView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.showsVerticalScrollIndicator = false
+        return view
+    }()
+    
+    private lazy var contentView: UIView  = {
+        let content = UIView()
+        return content
+    }()
+    
     //MARK: - View elements
     
     private lazy var topProfileLabel: UILabel = {
@@ -236,32 +250,45 @@ class ProfileViewController: UIViewController {
     private func setupView() {
         view.backgroundColor = .white
         
-        view.addSubview(topProfileLabel)
-        topProfileLabel.snp.makeConstraints { make in
+        view.addSubview(mainScrollView)
+        mainScrollView.snp.makeConstraints { make in
+            make.leading.trailing.equalToSuperview()
             make.top.equalTo(view.safeAreaLayoutGuide.snp.top).offset(15)
+            make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom).offset(-20)
+        }
+        
+        mainScrollView.addSubview(self.contentView)
+        self.contentView.snp.makeConstraints { make in
+            make.top.left.right.bottom.equalToSuperview()
+            make.width.equalTo(self.mainScrollView)
+        }
+        
+        contentView.addSubview(topProfileLabel)
+        topProfileLabel.snp.makeConstraints { make in
+            make.top.equalToSuperview()
             make.centerX.equalToSuperview()
         }
         
-        view.addSubview(profileImage)
+        contentView.addSubview(profileImage)
         profileImage.snp.makeConstraints { make in
             make.height.width.equalTo(60)
             make.top.equalTo(topProfileLabel.snp.bottom).offset(15)
             make.centerX.equalToSuperview()
         }
         
-        view.addSubview(changeProfilePhotoLabel)
+        contentView.addSubview(changeProfilePhotoLabel)
         changeProfilePhotoLabel.snp.makeConstraints { make in
             make.top.equalTo(profileImage.snp.bottom).offset(4)
             make.centerX.equalToSuperview()
         }
         
-        view.addSubview(usernameLabel)
+        contentView.addSubview(usernameLabel)
         usernameLabel.snp.makeConstraints { make in
             make.top.equalTo(changeProfilePhotoLabel.snp.bottom).offset(15)
             make.centerX.equalToSuperview()
         }
         
-        view.addSubview(uploadButton)
+        contentView.addSubview(uploadButton)
         uploadButton.snp.makeConstraints { make in
             make.left.equalToSuperview().offset(43)
             make.right.equalToSuperview().offset(-43)
@@ -269,126 +296,127 @@ class ProfileViewController: UIViewController {
             make.height.equalTo(40)
         }
         
-        view.addSubview(profileListIcon1)
+        contentView.addSubview(profileListIcon1)
         profileListIcon1.snp.makeConstraints { make in
             make.width.height.equalTo(40)
             make.left.equalToSuperview().offset(32)
             make.top.equalTo(uploadButton.snp.bottom).offset(25)
         }
         
-        view.addSubview(profileListLabel1)
+        contentView.addSubview(profileListLabel1)
         profileListLabel1.snp.makeConstraints { make in
             make.left.equalTo(profileListIcon1.snp.right).offset(7)
             make.centerY.equalTo(profileListIcon1.snp.centerY)
         }
         
-        view.addSubview(profileListAcc1)
+        contentView.addSubview(profileListAcc1)
         profileListAcc1.snp.makeConstraints { make in
             make.height.width.equalTo(15)
             make.centerY.equalTo(profileListIcon1.snp.centerY)
             make.right.equalToSuperview().offset(-32)
         }
         
-        view.addSubview(profileListIcon2)
+        contentView.addSubview(profileListIcon2)
         profileListIcon2.snp.makeConstraints { make in
             make.width.height.equalTo(40)
             make.left.equalToSuperview().offset(32)
             make.top.equalTo(profileListIcon1.snp.bottom).offset(25)
         }
         
-        view.addSubview(profileListLabel2)
+        contentView.addSubview(profileListLabel2)
         profileListLabel2.snp.makeConstraints { make in
             make.left.equalTo(profileListIcon2.snp.right).offset(7)
             make.centerY.equalTo(profileListIcon2.snp.centerY)
         }
         
-        view.addSubview(profileListAcc2)
+        contentView.addSubview(profileListAcc2)
         profileListAcc2.snp.makeConstraints { make in
             make.height.width.equalTo(15)
             make.centerY.equalTo(profileListIcon2.snp.centerY)
             make.right.equalToSuperview().offset(-32)
         }
         
-        view.addSubview(profileListIcon3)
+        contentView.addSubview(profileListIcon3)
         profileListIcon3.snp.makeConstraints { make in
             make.width.height.equalTo(40)
             make.left.equalToSuperview().offset(32)
             make.top.equalTo(profileListIcon2.snp.bottom).offset(25)
         }
         
-        view.addSubview(profileListLabel3)
+        contentView.addSubview(profileListLabel3)
         profileListLabel3.snp.makeConstraints { make in
             make.left.equalTo(profileListIcon3.snp.right).offset(7)
             make.centerY.equalTo(profileListIcon3.snp.centerY)
         }
         
-        view.addSubview(profileListAcc3)
+        contentView.addSubview(profileListAcc3)
         profileListAcc3.snp.makeConstraints { make in
             make.centerY.equalTo(profileListIcon3.snp.centerY)
             make.right.equalToSuperview().offset(-32)
         }
         
-        view.addSubview(profileListIcon4)
+        contentView.addSubview(profileListIcon4)
         profileListIcon4.snp.makeConstraints { make in
             make.width.height.equalTo(40)
             make.left.equalToSuperview().offset(32)
             make.top.equalTo(profileListIcon3.snp.bottom).offset(25)
         }
         
-        view.addSubview(profileListLabel4)
+        contentView.addSubview(profileListLabel4)
         profileListLabel4.snp.makeConstraints { make in
             make.left.equalTo(profileListIcon4.snp.right).offset(7)
             make.centerY.equalTo(profileListIcon4.snp.centerY)
         }
         
-        view.addSubview(profileListAcc4)
+        contentView.addSubview(profileListAcc4)
         profileListAcc4.snp.makeConstraints { make in
             make.height.width.equalTo(15)
             make.centerY.equalTo(profileListIcon4.snp.centerY)
             make.right.equalToSuperview().offset(-32)
         }
         
-        view.addSubview(profileListIcon5)
+        contentView.addSubview(profileListIcon5)
         profileListIcon5.snp.makeConstraints { make in
             make.width.height.equalTo(40)
             make.left.equalToSuperview().offset(32)
             make.top.equalTo(profileListIcon4.snp.bottom).offset(25)
         }
         
-        view.addSubview(profileListLabel5)
+        contentView.addSubview(profileListLabel5)
         profileListLabel5.snp.makeConstraints { make in
             make.left.equalTo(profileListIcon5.snp.right).offset(7)
             make.centerY.equalTo(profileListIcon5.snp.centerY)
         }
         
-        view.addSubview(profileListAcc5)
+        contentView.addSubview(profileListAcc5)
         profileListAcc5.snp.makeConstraints { make in
             make.height.width.equalTo(15)
             make.centerY.equalTo(profileListIcon5.snp.centerY)
             make.right.equalToSuperview().offset(-32)
         }
         
-        view.addSubview(profileListIcon6)
+        contentView.addSubview(profileListIcon6)
         profileListIcon6.snp.makeConstraints { make in
             make.width.height.equalTo(40)
             make.left.equalToSuperview().offset(32)
             make.top.equalTo(profileListIcon5.snp.bottom).offset(25)
         }
         
-        view.addSubview(profileListLabel6)
+        contentView.addSubview(profileListLabel6)
         profileListLabel6.snp.makeConstraints { make in
             make.left.equalTo(profileListIcon6.snp.right).offset(7)
             make.centerY.equalTo(profileListIcon6.snp.centerY)
         }
         
-        view.addSubview(profileListIcon7)
+        contentView.addSubview(profileListIcon7)
         profileListIcon7.snp.makeConstraints { make in
             make.width.height.equalTo(40)
             make.left.equalToSuperview().offset(32)
             make.top.equalTo(profileListIcon6.snp.bottom).offset(25)
+            make.bottom.equalToSuperview()
         }
         
-        view.addSubview(profileListLabel7)
+        contentView.addSubview(profileListLabel7)
         profileListLabel7.snp.makeConstraints { make in
             make.left.equalTo(profileListIcon7.snp.right).offset(7)
             make.centerY.equalTo(profileListIcon7.snp.centerY)

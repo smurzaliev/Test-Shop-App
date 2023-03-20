@@ -10,6 +10,8 @@ import RealmSwift
 
 class ProfileViewModel {
     
+    private let dataBase = DataManager.shared
+    
     //MARK: - Method for saving new custom profile image for user. It is saved to SandBox with unique name for user
         
     func saveProfileImage(image: UIImage) -> Bool {
@@ -17,12 +19,12 @@ class ProfileViewModel {
             return false
         }
         var imageName = ""
-        let currentUser = DataManager.shared.getCurrentUser()
+        let currentUser = dataBase.getCurrentUser()
         if currentUser?.image != nil {
             imageName = currentUser?.image ?? ""
         } else {
             imageName = UUID().uuidString
-            DataManager.shared.addImageToUser(image: imageName)
+            dataBase.addImageToUser(image: imageName)
         }
         
         guard let directory = try? FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false) as NSURL else {
