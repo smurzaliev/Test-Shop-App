@@ -17,7 +17,7 @@ class LoginViewModel {
     }
     
     func authorizeUser(user: User) -> Bool {
-        return DataManager.shared.authorizeUser(user: user)
+        return dataBase.authorizeUser(user: user)
     }
     
     func goToMainPage() {

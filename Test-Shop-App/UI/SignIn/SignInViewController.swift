@@ -13,8 +13,7 @@ class SignInViewController: UIViewController {
     var viewModel: SignInViewModel!
     
     //MARK: - View elements
-    
-    var passwordPrivacy: Bool = false {
+    var passwordPrivacy: Bool = true {
         didSet {
             self.passwordTextField.isSecureTextEntry = passwordPrivacy
         }
@@ -208,8 +207,6 @@ class SignInViewController: UIViewController {
     }
 
     @objc func loginTapped() {
-//        let vc = LoginViewController()
-//        navigationController?.pushViewController(vc, animated: true)
         viewModel.goToLoginPage()
     }
     

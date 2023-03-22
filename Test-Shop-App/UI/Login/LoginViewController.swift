@@ -12,7 +12,9 @@ class LoginViewController: UIViewController {
     
     var viewModel: LoginViewModel!
     
-    var passwordPrivacy: Bool = false {
+    //MARK: - Private property for storing the password secury entry mode
+    
+    private var passwordPrivacy: Bool = true {
         didSet {
             self.passwordTextField.isSecureTextEntry = passwordPrivacy
         }

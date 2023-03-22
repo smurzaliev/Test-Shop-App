@@ -9,7 +9,7 @@ import Foundation
 import Realm
 
 class SignInViewModel {
-    var view: SignInViewController!
+    private var view: SignInViewController!
     private let dataBase: DataService
     private let coordinator: Coordinator
         

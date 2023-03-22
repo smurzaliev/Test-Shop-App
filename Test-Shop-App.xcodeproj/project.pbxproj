@@ -44,7 +44,6 @@
 		DDC93BFB29BF3A9D008FB3B7 /* CartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC93BFA29BF3A9D008FB3B7 /* CartViewController.swift */; };
 		DDC93BFD29BF3AA9008FB3B7 /* MessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC93BFC29BF3AA9008FB3B7 /* MessageViewController.swift */; };
 		DDC93BFF29BF3AC1008FB3B7 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC93BFE29BF3AC1008FB3B7 /* ProfileViewController.swift */; };
-		DDC93C0429C05BE1008FB3B7 /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC93C0329C05BE1008FB3B7 /* String+Extensions.swift */; };
 		DDC93C0629C05C8F008FB3B7 /* SignInViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC93C0529C05C8F008FB3B7 /* SignInViewModel.swift */; };
 		DDC93C0829C05DBE008FB3B7 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC93C0729C05DBE008FB3B7 /* DataManager.swift */; };
 		DDC93C0B29C05EAC008FB3B7 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC93C0A29C05EAC008FB3B7 /* User.swift */; };
@@ -100,7 +99,6 @@
 		DDC93BFA29BF3A9D008FB3B7 /* CartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartViewController.swift; sourceTree = "<group>"; };
 		DDC93BFC29BF3AA9008FB3B7 /* MessageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageViewController.swift; sourceTree = "<group>"; };
 		DDC93BFE29BF3AC1008FB3B7 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
-		DDC93C0329C05BE1008FB3B7 /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
 		DDC93C0529C05C8F008FB3B7 /* SignInViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewModel.swift; sourceTree = "<group>"; };
 		DDC93C0729C05DBE008FB3B7 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		DDC93C0A29C05EAC008FB3B7 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -165,10 +163,10 @@
 			isa = PBXGroup;
 			children = (
 				DDC93BB029BEF70C008FB3B7 /* AppDelegate.swift */,
-				DDC93C4229C1E6DF008FB3B7 /* Model */,
-				DDC93C0929C05EA0008FB3B7 /* Utilities */,
-				DDC93BF229BF39D4008FB3B7 /* UI */,
 				DDC93C0229C05AEB008FB3B7 /* Extensions */,
+				DDC93C4229C1E6DF008FB3B7 /* Model */,
+				DDC93BF229BF39D4008FB3B7 /* UI */,
+				DDC93C0929C05EA0008FB3B7 /* Utilities */,
 				DDC93BB629BEF70C008FB3B7 /* Main.storyboard */,
 				DDC93BB929BEF70F008FB3B7 /* Assets.xcassets */,
 				DDC93BBB29BEF70F008FB3B7 /* LaunchScreen.storyboard */,
@@ -224,8 +222,8 @@
 		DDC93BF229BF39D4008FB3B7 /* UI */ = {
 			isa = PBXGroup;
 			children = (
-				DDC93BF029BF39C2008FB3B7 /* Login */,
 				DDC93BF129BF39C9008FB3B7 /* SignIn */,
+				DDC93BF029BF39C2008FB3B7 /* Login */,
 				DDC93BF529BF3A3D008FB3B7 /* Main */,
 				DDC93C0129BF3ACD008FB3B7 /* Other */,
 				DDC93C0029BF3AC6008FB3B7 /* Profile */,
@@ -236,8 +234,8 @@
 		DDC93BF529BF3A3D008FB3B7 /* Main */ = {
 			isa = PBXGroup;
 			children = (
-				DDC93BF329BF3A03008FB3B7 /* TabBarController.swift */,
 				DDC93C3729C1BD27008FB3B7 /* Cells */,
+				DDC93BF329BF3A03008FB3B7 /* TabBarController.swift */,
 				DDC93BF629BF3A50008FB3B7 /* MainPageViewController.swift */,
 				DDC93C3E29C1E18A008FB3B7 /* MainPageViewModel.swift */,
 			);
@@ -268,7 +266,6 @@
 			children = (
 				DDC93BEE29BEFE03008FB3B7 /* UIColor+Extensions.swift */,
 				DDC93C3C29C1E11F008FB3B7 /* General Extensions.swift */,
-				DDC93C0329C05BE1008FB3B7 /* String+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -448,7 +445,6 @@
 				DDC93C4429C1E6F8008FB3B7 /* SaleItem.swift in Sources */,
 				DD028CE229C84CF9009246FB /* LoginViewModel.swift in Sources */,
 				DDC93C0629C05C8F008FB3B7 /* SignInViewModel.swift in Sources */,
-				DDC93C0429C05BE1008FB3B7 /* String+Extensions.swift in Sources */,
 				DD028CDF29C8360A009246FB /* ProfileViewModel.swift in Sources */,
 				DDC93BFD29BF3AA9008FB3B7 /* MessageViewController.swift in Sources */,
 				DDC93C0B29C05EAC008FB3B7 /* User.swift in Sources */,
