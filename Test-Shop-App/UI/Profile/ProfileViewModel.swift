@@ -10,7 +10,13 @@ import RealmSwift
 
 class ProfileViewModel {
     
-    private let dataBase = DataManager.shared
+    private let dataBase: DataService
+    weak var coordinator : AppCoordinator!
+    
+    init(dataBase: DataService, coordinator: AppCoordinator!) {
+        self.dataBase = dataBase
+        self.coordinator = coordinator
+    }
     
     //MARK: - Method for saving new custom profile image for user. It is saved to SandBox with unique name for user
         

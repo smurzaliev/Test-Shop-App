@@ -10,7 +10,7 @@ import SnapKit
 
 class MainPageViewController: UIViewController {
     
-    private var viewModel: MainPageViewModel?
+    var viewModel: MainPageViewModel!
     
     var latestItems = [Latest]() {
         didSet{
@@ -195,10 +195,9 @@ class MainPageViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        viewModel = MainPageViewModel(view: self, networkApi: NetworkApi.sharedInstance)
         navigationController?.navigationBar.isHidden = true
         setupView()
-        viewModel?.fetchLatestItems()
+        viewModel.fetchLatestItems()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -350,7 +349,7 @@ class MainPageViewController: UIViewController {
     
     private func checkUserImage() {
         guard let imageName = DataManager.shared.getCurrentUser()?.image else {return}
-        let image = viewModel?.getSavedImage(named: imageName)
+        let image = viewModel.getSavedImage(named: imageName)
         profileImage.image = image
     }
 
@@ -360,13 +359,13 @@ extension MainPageViewController: UICollectionViewDelegate, UICollectionViewData
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         switch collectionView.tag {
         case 1:
-            return viewModel?.categories.count ?? 0
+            return viewModel.categories.count
         case 2:
-            return viewModel?.latestItems?.latest.count ?? 0
+            return viewModel.latestItems?.latest.count ?? 0
         case 3:
-            return viewModel?.saleItems.count ?? 0
+            return viewModel.saleItems.count
         case 4:
-            return viewModel?.teaCollection.count ?? 0
+            return viewModel.teaCollection.count
         default:
             return 0
         }
@@ -376,19 +375,19 @@ extension MainPageViewController: UICollectionViewDelegate, UICollectionViewData
         switch collectionView.tag {
         case 1:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "category", for: indexPath) as! CategoryCell
-            cell.fill(title: viewModel?.categories[indexPath.item][0] as! String ?? "", image: viewModel?.categories[indexPath.item][1] as! UIImage ?? UIImage())
+            cell.fill(title: viewModel.categories[indexPath.item][0] as! String, image: viewModel?.categories[indexPath.item][1] as! UIImage)
             return cell
         case 2:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "latest", for: indexPath) as! LatestCell
-            cell.fill(item: viewModel?.latestItems?.latest[indexPath.item])
+            cell.fill(item: viewModel.latestItems?.latest[indexPath.item])
             return cell
         case 3:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "flash", for: indexPath) as! FlashSaleCell
-            cell.fill(item: viewModel?.saleItems[indexPath.item])
+            cell.fill(item: viewModel.saleItems[indexPath.item])
             return cell
         case 4:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "teapot", for: indexPath) as! TeapotCell
-            cell.fill(item: viewModel?.teaCollection[indexPath.item])
+            cell.fill(item: viewModel.teaCollection[indexPath.item])
             return cell
         default:
             return UICollectionViewCell()

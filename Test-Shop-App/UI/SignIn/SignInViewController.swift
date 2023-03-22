@@ -10,7 +10,7 @@ import SnapKit
 
 class SignInViewController: UIViewController {
     
-    private var viewModel: SignInViewModel?
+    var viewModel: SignInViewModel!
     
     //MARK: - View elements
     
@@ -132,7 +132,6 @@ class SignInViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.navigationBar.isHidden = true
-        viewModel = SignInViewModel(view: self)
         setupView()
     }
     
@@ -144,6 +143,7 @@ class SignInViewController: UIViewController {
     }
     
     private func setupView() {
+        view.backgroundColor = .white
         view.addSubview(signInLabel)
         signInLabel.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
@@ -208,8 +208,9 @@ class SignInViewController: UIViewController {
     }
 
     @objc func loginTapped() {
-        let vc = LoginViewController()
-        navigationController?.pushViewController(vc, animated: true)
+//        let vc = LoginViewController()
+//        navigationController?.pushViewController(vc, animated: true)
+        viewModel.goToLoginPage()
     }
     
     @objc func signInPressed() {
@@ -226,8 +227,8 @@ class SignInViewController: UIViewController {
         let ac = UIAlertController(title: "Success", message: "New user created!", preferredStyle: .alert)
         ac.addAction(UIAlertAction(title: "Ok", style: .default) { _ in
             DispatchQueue.main.async { [weak self] in
-                let tabBar = TabBarController()
-                self?.navigationController?.pushViewController(tabBar, animated: true)
+//                let tabBar = TabBarController()
+//                self?.navigationController?.pushViewController(tabBar, animated: true)
             }
         })
         present(ac, animated: true)

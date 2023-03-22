@@ -10,10 +10,13 @@ import Realm
 
 class SignInViewModel {
     var view: SignInViewController!
-    private let dataBase = DataManager.shared
+    private let dataBase: DataService
+    weak var coordinator : AppCoordinator!
         
-    init(view: SignInViewController!) {
+    required init(view: SignInViewController!, dataBase: DataService, coordinator: AppCoordinator) {
         self.view = view
+        self.dataBase = dataBase
+        self.coordinator = coordinator
     }
     
     func isValidEmail(_ email: String) -> Bool {
@@ -32,7 +35,8 @@ class SignInViewModel {
                         view.presentAlert(title: "Error", message: "This user already exists")
                     } else {
                         dataBase.registerUser(user: user)
-                        view.success()
+//                        view.success()
+                        coordinator.goToTabBarPage()
                     }
                 } else {
                     view.presentAlert(title: "Error", message: "Password must be more than 6 characters long")
@@ -43,5 +47,9 @@ class SignInViewModel {
         } else {
             view.presentAlert(title: "Error", message: "Enter valid name")
         }
+    }
+    
+    func goToLoginPage() {
+        coordinator.goToLoginPage()
     }
 }

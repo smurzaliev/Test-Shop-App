@@ -12,8 +12,8 @@
 		DD028CDD29C82ECB009246FB /* TeapotCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD028CDC29C82ECB009246FB /* TeapotCell.swift */; };
 		DD028CDF29C8360A009246FB /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD028CDE29C8360A009246FB /* ProfileViewModel.swift */; };
 		DD028CE229C84CF9009246FB /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD028CE129C84CF9009246FB /* LoginViewModel.swift */; };
+		DD66460329CACA9300B00B90 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD66460229CACA9300B00B90 /* AppCoordinator.swift */; };
 		DDC93BB129BEF70C008FB3B7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC93BB029BEF70C008FB3B7 /* AppDelegate.swift */; };
-		DDC93BB329BEF70C008FB3B7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC93BB229BEF70C008FB3B7 /* SceneDelegate.swift */; };
 		DDC93BB529BEF70C008FB3B7 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC93BB429BEF70C008FB3B7 /* SignInViewController.swift */; };
 		DDC93BB829BEF70C008FB3B7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DDC93BB629BEF70C008FB3B7 /* Main.storyboard */; };
 		DDC93BBA29BEF70F008FB3B7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DDC93BB929BEF70F008FB3B7 /* Assets.xcassets */; };
@@ -66,9 +66,9 @@
 		DD028CDC29C82ECB009246FB /* TeapotCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeapotCell.swift; sourceTree = "<group>"; };
 		DD028CDE29C8360A009246FB /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		DD028CE129C84CF9009246FB /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		DD66460229CACA9300B00B90 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		DDC93BAD29BEF70C008FB3B7 /* Test-Shop-App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Test-Shop-App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DDC93BB029BEF70C008FB3B7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		DDC93BB229BEF70C008FB3B7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		DDC93BB429BEF70C008FB3B7 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		DDC93BB729BEF70C008FB3B7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		DDC93BB929BEF70F008FB3B7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -165,7 +165,6 @@
 			isa = PBXGroup;
 			children = (
 				DDC93BB029BEF70C008FB3B7 /* AppDelegate.swift */,
-				DDC93BB229BEF70C008FB3B7 /* SceneDelegate.swift */,
 				DDC93C4229C1E6DF008FB3B7 /* Model */,
 				DDC93C0929C05EA0008FB3B7 /* Utilities */,
 				DDC93BF229BF39D4008FB3B7 /* UI */,
@@ -278,6 +277,7 @@
 			isa = PBXGroup;
 			children = (
 				DDC93C0729C05DBE008FB3B7 /* DataManager.swift */,
+				DD66460229CACA9300B00B90 /* AppCoordinator.swift */,
 				DDC93C4029C1E5EF008FB3B7 /* NetworkApi.swift */,
 			);
 			path = Utilities;
@@ -458,12 +458,12 @@
 				DDC93C4129C1E5EF008FB3B7 /* NetworkApi.swift in Sources */,
 				DDC93C3F29C1E18A008FB3B7 /* MainPageViewModel.swift in Sources */,
 				DDC93BFF29BF3AC1008FB3B7 /* ProfileViewController.swift in Sources */,
+				DD66460329CACA9300B00B90 /* AppCoordinator.swift in Sources */,
 				DDC93C3629C1B4C7008FB3B7 /* CategoryCell.swift in Sources */,
 				DDC93BB129BEF70C008FB3B7 /* AppDelegate.swift in Sources */,
 				DDC93BF929BF3A90008FB3B7 /* FavViewController.swift in Sources */,
 				DDC93C3929C1C68D008FB3B7 /* LatestCell.swift in Sources */,
 				DDC93BFB29BF3A9D008FB3B7 /* CartViewController.swift in Sources */,
-				DDC93BB329BEF70C008FB3B7 /* SceneDelegate.swift in Sources */,
 				DDC93C4629C1FA13008FB3B7 /* FlashSaleCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

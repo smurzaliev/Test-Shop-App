@@ -8,9 +8,16 @@
 import Foundation
 import RealmSwift
 
-class DataManager {
-//    static let shared = DataManager()
-//    var realm: Realm!
+protocol DataService {
+    func checkUser(user: User) -> Bool
+    func authorizeUser(user: User) -> Bool
+    func registerUser(user: User)
+    func getCurrentUser() -> User?
+    func addImageToUser(image: String)
+}
+
+class DataManager: DataService {
+    
     var currentUser: User? = nil
     
     private let database: Realm? = {
@@ -54,10 +61,6 @@ class DataManager {
             database!.add(user, update: .all)
         }
         currentUser = user
-    }
-    
-    func updateUser(user: User) {
-        
     }
     
     func getCurrentUser() -> User? {

@@ -10,7 +10,7 @@ import SnapKit
 
 class LoginViewController: UIViewController {
     
-    private var viewModel: LoginViewModel?
+    weak var viewModel: LoginViewModel?
     
     var passwordPrivacy: Bool = false {
         didSet {
@@ -80,7 +80,6 @@ class LoginViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        viewModel = LoginViewModel()
         navigationController?.navigationBar.isHidden = true
         setupView()
     }
@@ -131,8 +130,9 @@ class LoginViewController: UIViewController {
             let ac = UIAlertController(title: "Login Success", message: "Successfully Authorized", preferredStyle: .alert)
             ac.addAction(UIAlertAction(title: "Ok", style: .default) { _ in
                 DispatchQueue.main.async { [weak self] in
-                    let tabBar = TabBarController()
-                    self?.navigationController?.pushViewController(tabBar, animated: true)
+//                    let tabBar = TabBarController()
+//                    self?.navigationController?.pushViewController(tabBar, animated: true)
+                    self?.viewModel?.goToMainPage()
                 }
             })
             present(ac, animated: true)

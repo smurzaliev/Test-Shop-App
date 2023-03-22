@@ -10,7 +10,7 @@ import SnapKit
 
 class ProfileViewController: UIViewController {
     
-    private var viewModel: ProfileViewModel? = nil
+    var viewModel: ProfileViewModel!
     
     //MARK: - Main ScrollView
     
@@ -228,7 +228,6 @@ class ProfileViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        viewModel = ProfileViewModel()
         setupView()
     }
     

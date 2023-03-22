@@ -9,8 +9,10 @@ import UIKit
 
 class MainPageViewModel {
     
-    var view: MainPageViewController!
-    let networkApi: NetworkService!
+    weak var view: MainPageViewController!
+    private let networkApi: NetworkService!
+    private let dataBase: DataService
+    weak var coordinator : AppCoordinator!
     var latestItems: LatestItem? {
         didSet {
             view.latestCollection.reloadData()
@@ -23,9 +25,11 @@ class MainPageViewModel {
         }
     }
     
-    init(view: MainPageViewController, networkApi: NetworkService) {
+    init(view: MainPageViewController, networkApi: NetworkService, dataBase: DataService, coordinator: AppCoordinator) {
         self.view = view
         self.networkApi = networkApi
+        self.dataBase = dataBase
+        self.coordinator = coordinator
     }
     
     //MARK: - Items for Category Collection
