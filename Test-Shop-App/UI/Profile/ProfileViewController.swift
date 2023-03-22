@@ -433,7 +433,7 @@ class ProfileViewController: UIViewController {
     }
     
     @objc func logoutPressed() {
-        navigationController?.popToRootViewController(animated: true)
+        viewModel.goToSignInVC()
     }
 
 }

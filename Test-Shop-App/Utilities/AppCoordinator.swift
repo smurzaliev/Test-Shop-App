@@ -32,8 +32,6 @@ class AppCoordinator : Coordinator {
         let dataBase = DataManager.shared
         // Instantiate LoginViewModel
         let loginViewModel = LoginViewModel(dataBase: dataBase, coordinator: self)
-        // Set the Coordinator to the ViewModel
-        loginViewModel.coordinator = self
         // Set the ViewModel to ViewController
         loginViewController.viewModel = loginViewModel
         // Push it.

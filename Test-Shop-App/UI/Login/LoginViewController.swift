@@ -10,7 +10,7 @@ import SnapKit
 
 class LoginViewController: UIViewController {
     
-    weak var viewModel: LoginViewModel?
+    var viewModel: LoginViewModel!
     
     var passwordPrivacy: Bool = false {
         didSet {
@@ -126,13 +126,11 @@ class LoginViewController: UIViewController {
         let user = User()
         user.email = firstNameTextField.text ?? ""
         user.password = passwordTextField.text ?? ""
-        if viewModel?.authorizeUser(user: user) ?? false == true {
+        if viewModel.authorizeUser(user: user) == true {
             let ac = UIAlertController(title: "Login Success", message: "Successfully Authorized", preferredStyle: .alert)
             ac.addAction(UIAlertAction(title: "Ok", style: .default) { _ in
                 DispatchQueue.main.async { [weak self] in
-//                    let tabBar = TabBarController()
-//                    self?.navigationController?.pushViewController(tabBar, animated: true)
-                    self?.viewModel?.goToMainPage()
+                    self?.viewModel.goToMainPage()
                 }
             })
             present(ac, animated: true)

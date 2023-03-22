@@ -54,4 +54,7 @@ class ProfileViewModel {
         return nil
     }
     
+    func goToSignInVC() {
+        coordinator.goToSignInPage()
+    }
 }

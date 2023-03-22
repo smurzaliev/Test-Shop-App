@@ -227,8 +227,7 @@ class SignInViewController: UIViewController {
         let ac = UIAlertController(title: "Success", message: "New user created!", preferredStyle: .alert)
         ac.addAction(UIAlertAction(title: "Ok", style: .default) { _ in
             DispatchQueue.main.async { [weak self] in
-//                let tabBar = TabBarController()
-//                self?.navigationController?.pushViewController(tabBar, animated: true)
+                self?.viewModel.goToTabBarPage()
             }
         })
         present(ac, animated: true)

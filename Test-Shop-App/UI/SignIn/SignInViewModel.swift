@@ -35,8 +35,7 @@ class SignInViewModel {
                         view.presentAlert(title: "Error", message: "This user already exists")
                     } else {
                         dataBase.registerUser(user: user)
-//                        view.success()
-                        coordinator.goToTabBarPage()
+                        view.success()
                     }
                 } else {
                     view.presentAlert(title: "Error", message: "Password must be more than 6 characters long")
@@ -51,5 +50,9 @@ class SignInViewModel {
     
     func goToLoginPage() {
         coordinator.goToLoginPage()
+    }
+    
+    func goToTabBarPage() {
+        coordinator.goToTabBarPage()
     }
 }
