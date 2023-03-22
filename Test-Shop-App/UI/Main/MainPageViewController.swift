@@ -12,18 +12,6 @@ class MainPageViewController: UIViewController {
     
     var viewModel: MainPageViewModel!
     
-    var latestItems = [Latest]() {
-        didSet{
-            latestCollection.reloadData()
-        }
-    }
-    
-    var saleItems = [FlashSale]() {
-        didSet{
-            flashSaleCollection.reloadData()
-        }
-    }
-    
     //MARK: - Main ScrollView
     
     private lazy var mainScrollView: UIScrollView = {
@@ -361,7 +349,7 @@ extension MainPageViewController: UICollectionViewDelegate, UICollectionViewData
         case 1:
             return viewModel.categories.count
         case 2:
-            return viewModel.latestItems?.latest.count ?? 0
+            return viewModel.latestItems.count
         case 3:
             return viewModel.saleItems.count
         case 4:
@@ -379,7 +367,7 @@ extension MainPageViewController: UICollectionViewDelegate, UICollectionViewData
             return cell
         case 2:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "latest", for: indexPath) as! LatestCell
-            cell.fill(item: viewModel.latestItems?.latest[indexPath.item])
+            cell.fill(item: viewModel.latestItems[indexPath.item])
             return cell
         case 3:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "flash", for: indexPath) as! FlashSaleCell

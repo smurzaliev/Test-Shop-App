@@ -55,6 +55,6 @@ class ProfileViewModel {
     }
     
     func goToSignInVC() {
-        coordinator.goToSignInPage()
+        coordinator.popToRootVC()
     }
 }

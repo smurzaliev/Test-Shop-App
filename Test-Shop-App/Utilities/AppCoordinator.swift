@@ -51,4 +51,8 @@ class AppCoordinator : Coordinator {
         let tb = TabBarController(coordinator: self)
         navigationController.pushViewController(tb, animated: true)
     }
+    
+    func popToRootVC(){
+        navigationController.popToRootViewController(animated: true)
+    }
 }

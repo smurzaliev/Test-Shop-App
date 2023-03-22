@@ -13,15 +13,19 @@ class MainPageViewModel {
     private let networkApi: NetworkService!
     private let dataBase: DataService
     weak var coordinator : AppCoordinator!
-    var latestItems: LatestItem? {
+    var latestItems = [Latest]() {
         didSet {
-            view.latestCollection.reloadData()
+            DispatchQueue.main.async { [weak self] in
+                self?.view.latestCollection.reloadData()
+            }
         }
     }
     
     var saleItems = [FlashSale]() {
         didSet{
-            view.flashSaleCollection.reloadData()
+            DispatchQueue.main.async { [weak self] in
+                self?.view.flashSaleCollection.reloadData()
+            }
         }
     }
     
@@ -58,11 +62,11 @@ class MainPageViewModel {
         var latest = latestItems
         var sale = [FlashSale]()
         networkApi.getLatestItems { result in
-            latest = result
+            latest = result.latest
         }
         networkApi.getSaleItems { result in
             sale = result.flashSale
-            if !(latest?.latest.isEmpty ?? false) && !sale.isEmpty {
+            if !latest.isEmpty && !sale.isEmpty {
                 self.latestItems = latest
                 self.saleItems = sale
             }
