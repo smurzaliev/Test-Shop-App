@@ -11,6 +11,10 @@ protocol Coordinator {
     var navigationController : UINavigationController { get set }
     
     func start()
+    func goToLoginPage()
+    func goToSignInPage()
+    func goToTabBarPage()
+    func popToRootVC()
 }
 
 class AppCoordinator : Coordinator {
@@ -42,7 +46,6 @@ class AppCoordinator : Coordinator {
         let signInViewController = SignInViewController()
         let dataBase = DataManager.shared
         let signInViewModel = SignInViewModel(view: signInViewController, dataBase: dataBase, coordinator: self)
-        signInViewModel.coordinator = self
         signInViewController.viewModel = signInViewModel
         navigationController.pushViewController(signInViewController, animated: true)
     }
@@ -52,7 +55,7 @@ class AppCoordinator : Coordinator {
         navigationController.pushViewController(tb, animated: true)
     }
     
-    func popToRootVC(){
+    func popToRootVC() {
         navigationController.popToRootViewController(animated: true)
     }
 }

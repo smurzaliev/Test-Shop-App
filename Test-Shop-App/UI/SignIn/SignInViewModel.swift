@@ -11,9 +11,9 @@ import Realm
 class SignInViewModel {
     var view: SignInViewController!
     private let dataBase: DataService
-    weak var coordinator : AppCoordinator!
+    private let coordinator: Coordinator
         
-    required init(view: SignInViewController!, dataBase: DataService, coordinator: AppCoordinator) {
+    required init(view: SignInViewController!, dataBase: DataService, coordinator: Coordinator) {
         self.view = view
         self.dataBase = dataBase
         self.coordinator = coordinator

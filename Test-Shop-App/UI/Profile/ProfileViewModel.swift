@@ -11,9 +11,9 @@ import RealmSwift
 class ProfileViewModel {
     
     private let dataBase: DataService
-    weak var coordinator : AppCoordinator!
+    private let coordinator: Coordinator
     
-    init(dataBase: DataService, coordinator: AppCoordinator!) {
+    init(dataBase: DataService, coordinator: Coordinator) {
         self.dataBase = dataBase
         self.coordinator = coordinator
     }

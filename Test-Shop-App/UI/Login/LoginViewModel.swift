@@ -9,9 +9,9 @@ import Foundation
 
 class LoginViewModel {
     private let dataBase: DataService
-    weak var coordinator : AppCoordinator!
+    private let coordinator: Coordinator
     
-    required init(dataBase: DataService, coordinator: AppCoordinator) {
+    required init(dataBase: DataService, coordinator: Coordinator) {
         self.dataBase = dataBase
         self.coordinator = coordinator
     }

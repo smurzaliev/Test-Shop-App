@@ -12,7 +12,7 @@ class MainPageViewModel {
     weak var view: MainPageViewController!
     private let networkApi: NetworkService!
     private let dataBase: DataService
-    weak var coordinator : AppCoordinator!
+    private let coordinator: Coordinator
     var latestItems = [Latest]() {
         didSet {
             DispatchQueue.main.async { [weak self] in
@@ -29,7 +29,7 @@ class MainPageViewModel {
         }
     }
     
-    init(view: MainPageViewController, networkApi: NetworkService, dataBase: DataService, coordinator: AppCoordinator) {
+    init(view: MainPageViewController, networkApi: NetworkService, dataBase: DataService, coordinator: Coordinator) {
         self.view = view
         self.networkApi = networkApi
         self.dataBase = dataBase
@@ -59,16 +59,22 @@ class MainPageViewModel {
                            Teapot(category: "Teapot", name: "Everyday kitchet teapot", price: 20, discount: 10, imageURL: "teapot5")]
     
     func fetchLatestItems() {
-        var latest = latestItems
+        var latest = [Latest]()
         var sale = [FlashSale]()
-        networkApi.getLatestItems { result in
-            latest = result.latest
-        }
-        networkApi.getSaleItems { result in
-            sale = result.flashSale
-            if !latest.isEmpty && !sale.isEmpty {
-                self.latestItems = latest
-                self.saleItems = sale
+        DispatchQueue.global(qos: .userInteractive).async { [weak self] in
+            self?.networkApi.getLatestItems { result in
+                latest = result.latest
+                if !latest.isEmpty && !sale.isEmpty {
+                    self?.latestItems = latest
+                    self?.saleItems = sale
+                }
+            }
+            self?.networkApi.getSaleItems { result in
+                sale = result.flashSale
+                if !latest.isEmpty && !sale.isEmpty {
+                    self?.saleItems = sale
+                    self?.latestItems = latest
+                }
             }
         }
     }
